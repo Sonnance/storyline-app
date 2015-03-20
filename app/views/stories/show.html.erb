@@ -15,5 +15,29 @@
   <%= @story.default_char_name %>
 </p>
 
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Story</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @story.scenes.each do |scene| %>
+      <tr>
+        <td><%= scene.title %></td>
+        <td><%= scene.description %></td>
+        <td><%= scene.story_id %></td>
+        <td><%= link_to 'Show', scene %></td>
+        <td><%= link_to 'Edit', edit_scene_path(scene) %></td>
+        <td><%= link_to 'Destroy', scene, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <%= link_to 'Edit', edit_story_path(@story) %> |
 <%= link_to 'Back', stories_path %>

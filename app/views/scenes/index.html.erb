@@ -1,0 +1,29 @@
+<h1>Listing scenes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Story</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @scenes.each do |scene| %>
+      <tr>
+        <td><%= scene.title %></td>
+        <td><%= scene.description %></td>
+        <td><%= scene.story_id %></td>
+        <td><%= link_to 'Show', story_scene_path(@story, scene) %></td>
+        <td><%= link_to 'Edit', edit_story_scene_path(@story, scene) %></td>
+        <td><%= link_to 'Destroy', story_scene_path(@story, scene), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Scene', new_story_scene_path(@story) %>
