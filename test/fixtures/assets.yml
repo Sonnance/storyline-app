@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  asset_type: 1
+  name: MyString
+  description: MyText
+  durability: 1
+
+two:
+  asset_type: 1
+  name: MyString
+  description: MyText
+  durability: 1

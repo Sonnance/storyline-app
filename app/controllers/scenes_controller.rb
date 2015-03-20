@@ -5,7 +5,7 @@ class ScenesController < ApplicationController
   # GET /scenes
   # GET /scenes.json
   def index
-    @scenes = Scene.all
+    @scenes = @story.scenes.all
   end
 
   # GET /scenes/1
@@ -15,7 +15,7 @@ class ScenesController < ApplicationController
 
   # GET /scenes/new
   def new
-    @scene = Scene.new
+    @scene = @story.scenes.new
   end
 
   # GET /scenes/1/edit
@@ -43,7 +43,7 @@ class ScenesController < ApplicationController
   def update
     respond_to do |format|
       if @scene.update(scene_params)
-        format.html { redirect_to @scene, notice: 'Scene was successfully updated.' }
+        format.html { redirect_to story_scene_path(@story, @scene), notice: 'Scene was successfully updated.' }
         format.json { render :show, status: :ok, location: @scene }
       else
         format.html { render :edit }
@@ -64,9 +64,6 @@ class ScenesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_story
-      @story = Story.find(params[:story_id])
-    end
 
     def set_scene
       @scene = @story.scenes.find(params[:id])

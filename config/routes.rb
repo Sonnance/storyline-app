@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :stories do
     resources :scenes
+    resources :assets
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
