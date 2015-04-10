@@ -29,7 +29,7 @@ class ScenesController < ApplicationController
 
     respond_to do |format|
       if @scene.save
-        format.html { redirect_to story_scene_path(@story, @scene), notice: 'Scene was successfully created.' }
+        format.html { redirect_to story_scenes_path(@story), notice: 'Scene was successfully created.' }
         format.json { render :show, status: :created, location: @scene }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class ScenesController < ApplicationController
   def update
     respond_to do |format|
       if @scene.update(scene_params)
-        format.html { redirect_to story_scene_path(@story, @scene), notice: 'Scene was successfully updated.' }
+        format.html { redirect_to story_scenes_path(@story), notice: 'Scene was successfully updated.' }
         format.json { render :show, status: :ok, location: @scene }
       else
         format.html { render :edit }

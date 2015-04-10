@@ -40,6 +40,8 @@
   </tbody>
 </table>
 
+<%= link_to 'New Scene', new_story_scene_path(@story) %>
+
 <h2>Assets</h2>
 <table>
   <thead>
@@ -66,6 +68,8 @@
     <% end %>
   </tbody>
 </table>
+
+<%= link_to 'New Asset', new_story_asset_path(@story) %>
 
 <%= link_to 'Edit', edit_story_path(@story) %> |
 <%= link_to 'Back', stories_path %>
