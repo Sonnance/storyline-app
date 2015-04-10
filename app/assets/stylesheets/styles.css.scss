@@ -1,0 +1,17 @@
+// Place all the styles related to the Stories controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#sidebar {
+	position: absolute;
+	top: 50px;
+	right: -300px;
+	z-index: 9999;
+	background-color: whitesmoke;
+	height: 100%;
+	width: 300px;
+}
+
+#sidebar.on {
+	right: 0px;
+}
