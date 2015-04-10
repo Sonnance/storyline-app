@@ -15,8 +15,10 @@
   <%= @story.default_char_name %>
 </p>
 
+<%= link_to 'Edit', edit_story_path(@story) %> |
+
 <h2>Scenes</h2>
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Title</th>
@@ -30,20 +32,20 @@
     <% @story.scenes.each do |scene| %>
       <tr>
         <td><%= scene.title %></td>
-        <td><%= scene.description %></td>
+        <td><%= truncate(scene.description, :length =>100) %></td>
         <td><%= scene.story_id %></td>
-        <td><%= link_to 'Show', story_scene_path(@story, scene) %></td>
-        <td><%= link_to 'Edit', edit_story_scene_path(@story, scene) %></td>
-        <td><%= link_to 'Destroy', story_scene_path(@story, scene), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', story_scene_path(@story, scene), :class => "btn btn-sm btn-default" %></td>
+        <td><%= link_to 'Edit', edit_story_scene_path(@story, scene), :class => "btn btn-sm btn-default" %></td>
+        <td><%= link_to 'Destroy', story_scene_path(@story, scene), :class => "btn btn-sm btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'New Scene', new_story_scene_path(@story) %>
+<%= link_to 'New Scene', new_story_scene_path(@story), :class => "btn btn-primary" %>
 
 <h2>Assets</h2>
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Asset type</th>
@@ -59,17 +61,17 @@
       <tr>
         <td><%= asset.asset_type %></td>
         <td><%= asset.name %></td>
-        <td><%= asset.description %></td>
+        <td><%= truncate(asset.description, :length => 100) %></td>
         <td><%= asset.durability %></td>
-        <td><%= link_to 'Show', story_asset_path(@story, asset) %></td>
-        <td><%= link_to 'Edit', edit_story_asset_path(@story, asset) %></td>
-        <td><%= link_to 'Destroy', story_asset_path(@story, asset), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', story_asset_path(@story, asset), :class => "btn btn-sm btn-default" %></td>
+        <td><%= link_to 'Edit', edit_story_asset_path(@story, asset), :class => "btn btn-sm btn-default" %></td>
+        <td><%= link_to 'Destroy', story_asset_path(@story, asset), :class => "btn btn-sm btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'New Asset', new_story_asset_path(@story) %>
+<%= link_to 'New Asset', new_story_asset_path(@story), :class => "btn btn-primary" %>
 
-<%= link_to 'Edit', edit_story_path(@story) %> |
+
 <%= link_to 'Back', stories_path %>

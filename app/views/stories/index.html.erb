@@ -1,6 +1,6 @@
 <h1>Stories</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Title</th>
@@ -14,11 +14,11 @@
     <% @stories.each do |story| %>
       <tr>
         <td><%= story.title %></td>
-        <td><%= story.description %></td>
+        <td><%= truncate(story.description, :length => 100) %></td>
         <td><%= story.default_char_name %></td>
-        <td><%= link_to 'Show', story %></td>
-        <td><%= link_to 'Edit', edit_story_path(story) %></td>
-        <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', story, :class => "btn btn-sm btn-default" %></td>
+        <td><%= link_to 'Edit', edit_story_path(story), :class => "btn btn-sm btn-default" %></td>
+        <td><%= link_to 'Destroy', story, :class => "btn btn-sm btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Story', new_story_path %>
+<%= link_to 'New Story', new_story_path, :class => "btn btn-primary" %>

@@ -1,6 +1,6 @@
 <h1>Listing scenes</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Title</th>
@@ -16,9 +16,9 @@
         <td><%= scene.title %></td>
         <td><%= truncate(scene.description, :length => 100) %></td>
         <td><%= scene.story_id %></td>
-        <td><%= link_to 'Show', story_scene_path(@story, scene) %></td>
-        <td><%= link_to 'Edit', edit_story_scene_path(@story, scene) %></td>
-        <td><%= link_to 'Destroy', story_scene_path(@story, scene), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', story_scene_path(@story, scene), :class => "btn btn-sm btn-default" %></td>
+        <td><%= link_to 'Edit', edit_story_scene_path(@story, scene), :class => "btn btn-sm btn-default" %></td>
+        <td><%= link_to 'Destroy', story_scene_path(@story, scene), :class => "btn btn-sm btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Scene', new_story_scene_path(@story) %>
+<%= link_to 'New Scene', new_story_scene_path(@story), :class => "btn btn-primary" %>
