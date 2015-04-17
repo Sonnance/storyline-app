@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   resources :stories do
-    resources :scenes
+    resources :scenes do
+      resources :rules
+    end
     resources :assets
   end
 

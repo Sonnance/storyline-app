@@ -1,0 +1,45 @@
+<%= simple_form_for([@story, @scene, @rule]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <table class="table">
+      <tr>
+        <th>
+        </th>
+        <th>
+          Asset
+        </th>
+        <th>
+          State
+        </th>
+        <th>
+          Inequality
+        </th>
+        <th>
+          Inequality Value
+        </th>
+      </tr>
+      <tr>
+        <td>
+          If 
+        </td>
+        <td>
+          <%= f.association :asset, :include_blank => false, :input_html => { :class => "form-control" }, :label => false %>
+        </td>
+        <td>
+          <%= f.input :state, collection: Rule.rule_states, :label_method => :last, :value_method => :first,:include_blank => false, :input_html => { :class => "form-control" }, :label => false  %>
+        </td>
+        <td>
+          <%= f.input :inequality, collection: Rule.rule_inequalities, :label_method => :last, :value_method => :first,:include_blank => false, :input_html => { :class => "form-control" }, :label => false %>
+        </td>
+        <td>
+          <%= f.input :inequality_value, :input_html => { :class => "form-control" }, :label => false %>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

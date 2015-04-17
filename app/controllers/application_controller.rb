@@ -9,6 +9,11 @@ class ApplicationController < ActionController::Base
     @story = Story.find(params[:story_id])
 	end
 
+  def set_scene
+    set_story
+    @scene = @story.scenes.find(params[:scene_id])
+  end
+
 	def load_stories
 		@stories = Story.all
 	end

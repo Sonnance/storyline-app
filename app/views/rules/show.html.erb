@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Scene:</strong>
+  <%= @rule.scene_id %>
+</p>
+
+<p>
+  <strong>Asset:</strong>
+  <%= @rule.asset_id %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @rule.state %>
+</p>
+
+<p>
+  <strong>Inequality:</strong>
+  <%= @rule.inequality %>
+</p>
+
+<p>
+  <strong>Inequality value:</strong>
+  <%= @rule.inequality_value %>
+</p>
+
+<%= link_to 'Edit', edit_rule_path(@rule) %> |
+<%= link_to 'Back', rules_path %>

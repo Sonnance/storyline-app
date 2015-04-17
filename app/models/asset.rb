@@ -1,5 +1,6 @@
 class Asset < ActiveRecord::Base
 	belongs_to :story
+	has_many :rules
 
 	TYPE_TOOL      = 0
 	TYPE_EQUIPMENT = 1
