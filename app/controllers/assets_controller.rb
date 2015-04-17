@@ -2,6 +2,8 @@ class AssetsController < ApplicationController
   before_action :set_story
   before_action :set_asset, only: [:show, :edit, :update, :destroy]
 
+  layout "storyboard"
+
   # GET /assets
   # GET /assets.json
   def index

@@ -2,6 +2,8 @@ class ScenesController < ApplicationController
   before_action :set_story
   before_action :set_scene, only: [:show, :edit, :update, :destroy]
 
+  layout "storyboard"
+
   # GET /scenes
   # GET /scenes.json
   def index
