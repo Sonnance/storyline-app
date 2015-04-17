@@ -1,12 +1,15 @@
 <div id="sidebar">
 	<% if @stories.present? %>
-     <ul class="list-unstyled"> 
+    <ul class="list-unstyled"> 
       <% @stories.each do |story| %>
         <li> 
           <%= link_to story.title, edit_story_path(story)%>
         </li>
       <% end %>
-      </ul>
+      <li>
+        <%= link_to "New Story", new_story_path %>
+      </li>
+    </ul>
   <% end %>
 </div>
 

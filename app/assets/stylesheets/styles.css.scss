@@ -15,3 +15,16 @@
 #sidebar.on {
 	right: 0px;
 }
+
+body {
+	overflow: hidden;
+	max-width: 100%;
+}
+
+.background-grey {
+	background-color: whitesmoke;
+}
+
+.hidden-default {
+	display: none;
+}

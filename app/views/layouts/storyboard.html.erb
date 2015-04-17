@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>StorylineApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag    'application' %>
+  
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= render "layouts/navigation" %>
+
+<div class="row">
+  <div class="col-md-3 background-grey">
+    <% if @stories.present? %>
+      <ul class="list-unstyled"> 
+        <% @stories.each do |story| %>
+          <li> 
+            <%= link_to story.title, story_path(story)%>
+            <ul class="<%= @story != story ? 'hidden-default' : '' %>">
+              <li>
+                <span class="pull-right">
+                  <%= link_to 'New Scene', new_story_scene_path(story) %>
+                </span>
+                <%= link_to "Scenes", story_scenes_path(story) %>
+
+                <ul>
+                  <% story.scenes.each do |scene| %>
+                    <li>
+                      <%= link_to scene.title, story_scene_path(story, scene) %>
+                    </li>
+                  <% end %>
+                </ul>
+              </li>
+
+              <li>
+                <span class="pull-right">
+                  <%= link_to 'New Asset', new_story_asset_path(story) %>
+                </span>
+                <%= link_to "Assets", story_assets_path(story) %>
+                <ul>
+                  <% story.assets.each do |asset| %>
+                    <li>
+                      <%= link_to asset.name, story_asset_path(story, asset) %>
+                    </li>
+                  <% end %>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        <% end %>
+        <li>
+          <hr>
+        </li>
+        <li>
+          <%= link_to "New Story", new_story_path %>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+
+  <div class="col-md-9">
+    <%= yield %>
+  </div>
+</div>
+
+</body>
+</html>

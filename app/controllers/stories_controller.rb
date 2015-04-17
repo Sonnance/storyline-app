@@ -1,6 +1,8 @@
 class StoriesController < ApplicationController
   before_action :set_story, only: [:show, :edit, :update, :destroy]
 
+  layout "storyboard"
+
   # GET /stories
   # GET /stories.json
   def index
