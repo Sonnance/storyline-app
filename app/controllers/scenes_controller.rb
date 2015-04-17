@@ -59,7 +59,7 @@ class ScenesController < ApplicationController
   def destroy
     @scene.destroy
     respond_to do |format|
-      format.html { redirect_to scenes_url, notice: 'Scene was successfully destroyed.' }
+      format.html { redirect_to story_scenes_url, notice: 'Scene was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

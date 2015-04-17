@@ -6,7 +6,7 @@
       <th>Title</th>
       <th>Description</th>
       <th>Default char name</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -18,7 +18,6 @@
         <td><%= story.default_char_name %></td>
         <td><%= link_to 'Show', story, :class => "btn btn-sm btn-default" %></td>
         <td><%= link_to 'Edit', edit_story_path(story), :class => "btn btn-sm btn-default" %></td>
-        <td><%= link_to 'Destroy', story, :class => "btn btn-sm btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
