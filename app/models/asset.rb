@@ -15,4 +15,17 @@ class Asset < ActiveRecord::Base
 			TYPE_COMPANION => "Companion",
 		}
 	end
+
+	def type_as_string
+		case asset_type
+			when TYPE_TOOL
+				"Tool"
+			when TYPE_EQUIPMENT
+				"Equipment"
+			when TYPE_KEY
+				"Key Item"
+			when TYPE_COMPANION
+				"Companion"
+		end
+	end
 end

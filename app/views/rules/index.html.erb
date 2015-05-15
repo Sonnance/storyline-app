@@ -1,28 +1,17 @@
-<h1>Listing rules</h1>
+<h1><%= @scene.title %> Rules</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Scene</th>
-      <th>Asset</th>
-      <th>State</th>
-      <th>Inequality</th>
-      <th>Inequality value</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
+<table class="table">
   <tbody>
     <% @rules.each do |rule| %>
       <tr>
-        <td><%= rule.scene_id %></td>
-        <td><%= rule.asset_id %></td>
-        <td><%= rule.state %></td>
-        <td><%= rule.inequality %></td>
-        <td><%= rule.inequality_value %></td>
-        <td><%= link_to 'Show', story_scene_rule_path(@story, @scene, rule) %></td>
-        <td><%= link_to 'Edit', edit_story_scene_rule_path(@story, @scene, rule) %></td>
-        <td><%= link_to 'Destroy', story_scene_rule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          If <%= rule.asset.name %> <%= rule.state_as_string %> <%= rule.inequality_as_string %> <%= rule.inequality_value %>
+        </td>
+        <td class="text-right">
+          <%= link_to 'Show',  story_scene_rule_path(@story, @scene, rule), class:"btn btn-primary" %> 
+          <%= link_to 'Edit',  edit_story_scene_rule_path(@story, @scene, rule), class:"btn btn-primary" %> 
+          <%= link_to 'Destroy',  story_scene_rule_path(@story, @scene, rule), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %> 
+        </td>
       </tr>
     <% end %>
   </tbody>

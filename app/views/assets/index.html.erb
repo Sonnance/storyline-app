@@ -1,6 +1,6 @@
 <h1>Listing assets</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Asset type</th>
@@ -14,7 +14,7 @@
   <tbody>
     <% @assets.each do |asset| %>
       <tr>
-        <td><%= asset.asset_type %></td>
+        <td><%= asset.type_as_string %></td>
         <td><%= asset.name %></td>
         <td><%= asset.description %></td>
         <td><%= asset.durability %></td>

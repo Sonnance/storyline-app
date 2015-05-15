@@ -30,4 +30,30 @@ class Rule < ActiveRecord::Base
 			INEQUALITY_NOT_EQUAL_TO             => "!=",
 		}
 	end
+
+	def state_as_string
+		case state
+			when STATE_QUANTITY 
+				"quantity"
+			when STATE_DURABILITY
+				"durability"
+		end
+	end
+
+	def inequality_as_string
+		case state
+			when INEQUALITY_GREATER_THAN
+				"is greater than"
+			when INEQUALITY_LESS_THAN
+				"is less than"
+			when INEQUALITY_GREATER_THAN_OR_EQUAL_TO
+				"is greater than or equal to"
+			when INEQUALITY_LESS_THAN_OR_EQUAL_TO
+				"is less than or equal to"
+			when INEQUALITY_EQUAL_TO
+				"is equal to"
+			when INEQUALITY_NOT_EQUAL_TO
+				"is not equal to"
+		end
+	end
 end
