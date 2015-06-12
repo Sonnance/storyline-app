@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150417203303) do
+ActiveRecord::Schema.define(version: 20150612203340) do
 
   create_table "assets", force: true do |t|
     t.integer  "asset_type"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 20150417203303) do
     t.text     "description"
     t.integer  "durability"
     t.integer  "story_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "choices", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "position"
+    t.integer  "rule_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

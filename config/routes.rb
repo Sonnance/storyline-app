@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-
+  
   resources :stories do
     resources :scenes do
-      resources :rules
+      resources :rules do
+        resources :choices
+      end
     end
     resources :assets
   end

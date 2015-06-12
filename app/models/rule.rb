@@ -2,6 +2,8 @@ class Rule < ActiveRecord::Base
 	belongs_to :asset
 	belongs_to :scene
 
+	has_many   :choices
+
 	STATE_QUANTITY   = 0
 	STATE_DURABILITY = 1
 

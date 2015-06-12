@@ -15,4 +15,21 @@
   <%= @scene.story_id %>
 </p>
 
+<table class="table">
+  <tbody>
+    <% @scene.rules.each do |rule| %>
+      <tr>
+        <td>
+          If <%= rule.asset.name %> <%= rule.state_as_string %> <%= rule.inequality_as_string %> <%= rule.inequality_value %>
+        </td>
+        <td class="text-right">
+          <%= link_to 'Show',  story_scene_rule_path(@story, @scene, rule), class:"btn btn-primary" %> 
+          <%= link_to 'Edit',  edit_story_scene_rule_path(@story, @scene, rule), class:"btn btn-primary" %> 
+          <%= link_to 'Destroy',  story_scene_rule_path(@story, @scene, rule), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %> 
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <%= link_to 'New Rule', new_story_scene_rule_path(@story, @scene), :class => "btn btn-primary" %>

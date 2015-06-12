@@ -14,6 +14,11 @@ class ApplicationController < ActionController::Base
     @scene = @story.scenes.find(params[:scene_id])
   end
 
+  def set_rule
+    set_scene
+    @rule = @scene.rules.find(params[:rule_id])
+  end
+
 	def load_stories
 		@stories = Story.all
 	end
